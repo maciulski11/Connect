@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "966087522175",
+    "firebase_url": "https://instugram-4e633-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "instugram-4e633",
+    "storage_bucket": "instugram-4e633.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:966087522175:android:6af4f337daaecebd2d8c4a",
+        "android_client_info": {
+          "package_name": "com.example.instugram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "966087522175-uc3ce40ihhuvg8p5ajh9ou0s3nco6ji6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.instugram",
+            "certificate_hash": "18fccbadca04fba1b07c669c00bda9add7232441"
+          }
+        },
+        {
+          "client_id": "966087522175-4tpujkqkli7kkjjonvdppn0f3qkh622s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCp_Xh1HlAkECl-uTwmn7mcse3DJP2bNsI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "966087522175-4tpujkqkli7kkjjonvdppn0f3qkh622s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

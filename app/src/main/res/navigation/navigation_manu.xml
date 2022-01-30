@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_menu"
+    app:startDestination="@id/postsFragment">
+
+    <fragment
+        android:id="@+id/findFragment"
+        android:name="com.example.connect.screens.FindFragment"
+        android:label="FindFragment" />
+    <fragment
+        android:id="@+id/addPostsFragment"
+        android:name="com.example.connect.screens.AddPostsFragment"
+        android:label="AddPostsFragment" >
+        <action
+            android:id="@+id/action_addPostsFragment_to_sharePosts"
+            app:destination="@id/sharePosts" />
+    </fragment>
+    <fragment
+        android:id="@+id/postsFragment"
+        android:name="com.example.connect.screens.PostsFragment"
+        android:label="PostsFragment" />
+    <fragment
+        android:id="@+id/sharePosts"
+        android:name="com.example.connect.screens.SharePosts"
+        android:label="SharePosts" >
+        <action
+            android:id="@+id/action_sharePosts_to_postsFragment"
+            app:destination="@id/postsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.connect.screens.ProfileFragment"
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/messageUsersFragment"
+        android:name="com.example.connect.screens.MessageUsersFragment"
+        android:label="MessageUsersFragment" >
+        <action
+            android:id="@+id/action_messageUsersFragment_to_messageFragment"
+            app:destination="@id/messageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.connect.screens.EditProfileFragment"
+        android:label="EditProfileFragment" >
+        <action
+            android:id="@+id/action_editProfileFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/messageFragment"
+        android:name="com.example.connect.screens.MessageFragment"
+        android:label="MessageFragment" />
+</navigation>
