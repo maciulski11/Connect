@@ -32,10 +32,10 @@ class ProfileFragment: BaseFragment() {
     private lateinit var db: FirebaseFirestore
 
     override fun subscribeUi() {
-        profileVM.user.observe(viewLifecycleOwner, { user ->
+        profileVM.user.observe(viewLifecycleOwner) { user ->
             bindUserData(user)
             pobierzDaneZFirebase()
-        })
+        }
 
         recyclerViewProfile.layoutManager = GridLayoutManager(context, 3)
         recyclerViewProfile.setHasFixedSize(true)

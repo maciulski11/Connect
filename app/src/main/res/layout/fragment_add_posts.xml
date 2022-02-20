@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_marginTop="40dp">
+    android:layout_marginTop="20dp">
 
     <TextView
         android:layout_width="match_parent"
@@ -14,12 +15,42 @@
         android:gravity="center"
         android:textStyle="bold"/>
 
-
-    <ImageView
-        android:id="@+id/wybraneZdjecie"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_margin="16dp" />
+        android:layout_height="360dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/wybraneZdjecie"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_margin="8dp"
+            tools:visibility="invisible"
+            android:layout_gravity="center_horizontal"/>
+
+        <VideoView
+            android:id="@+id/wybraneVideo"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_margin="8dp"
+            android:visibility="invisible"
+            android:layout_gravity="center_horizontal"/>
+
+        <ImageButton
+            android:id="@+id/refreshVideoBT"
+            android:layout_width="44dp"
+            android:layout_height="43dp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="165dp"
+            android:layout_marginBottom="4dp"
+            android:src="@drawable/ic_play_24"
+            android:visibility="invisible"/>
+
+    </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,8 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="135dp"
-            android:layout_marginRight="8dp"
+            android:layout_marginStart="88dp"
             android:src="@drawable/ic_baseline_image_2422" />
 
         <ImageButton
@@ -40,7 +70,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
             android:src="@drawable/ic_baseline_camera_alt_244"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <ImageButton
+            android:id="@+id/videoBT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_videocam_24"
             android:textColor="@color/black"
             android:textSize="14sp" />
 

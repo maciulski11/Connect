@@ -38,9 +38,9 @@ class SharePosts: BaseFragment() {
     val addVM = AddPostsViewModel()
 
     override fun subscribeUi() {
-        shareVM.user.observe(viewLifecycleOwner, { user ->
+        shareVM.user.observe(viewLifecycleOwner) { user ->
             bindUserData(user)
-        })
+        }
         sharePosts()
     }
 
@@ -71,8 +71,6 @@ class SharePosts: BaseFragment() {
             val byteArray = stream.toByteArray()
 
             if (result) addVM.uploadUserPhoto(byteArray)
-
-
         }
     }
         private fun sharePosts(){

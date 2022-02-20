@@ -13,7 +13,10 @@
         <entry key="app/src/main/res/drawable/ic_baseline_add_comment_24.xml" value="0.2074074074074074" />
         <entry key="app/src/main/res/drawable/ic_baseline_camera_alt_24.xml" value="0.2074074074074074" />
         <entry key="app/src/main/res/drawable/ic_baseline_grid_on_24.xml" value="0.2074074074074074" />
+        <entry key="app/src/main/res/drawable/ic_baseline_image_2422.xml" value="0.138" />
         <entry key="app/src/main/res/drawable/ic_message_24.xml" value="0.2074074074074074" />
+        <entry key="app/src/main/res/drawable/ic_play_24.xml" value="0.138" />
+        <entry key="app/src/main/res/drawable/ic_videocam_24.xml" value="0.138" />
         <entry key="app/src/main/res/drawable/lupka.xml" value="0.21324200913242009" />
         <entry key="app/src/main/res/drawable/message_box_background.xml" value="0.2074074074074074" />
         <entry key="app/src/main/res/drawable/message_corners.xml" value="0.2074074074074074" />
@@ -47,7 +50,7 @@
         <entry key="app/src/main/res/layout/item_image_profile.xml" value="0.19305555555555556" />
         <entry key="app/src/main/res/layout/item_post.xml" value="0.335" />
         <entry key="app/src/main/res/layout/item_receive_message.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/item_sent_message.xml" value="0.19305555555555556" />
+        <entry key="app/src/main/res/layout/item_sent_message.xml" value="0.165" />
         <entry key="app/src/main/res/layout/item_small_image.xml" value="0.165" />
         <entry key="app/src/main/res/layout/item_user_message.xml" value="0.19305555555555556" />
         <entry key="app/src/main/res/layout/item_users_message.xml" value="0.19305555555555556" />

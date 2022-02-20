@@ -1,14 +1,18 @@
 package com.example.connect.screens
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
 import android.util.Log
+import android.view.View
 import android.widget.Toast
+import android.widget.VideoView
 import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
@@ -32,6 +36,7 @@ class AddPostsFragment() : BaseFragment() {
 
     private val PROFILE_DEBUG = "PROFILE_DEBUG"
     private val REQUEST_IMAGE_CAPTURE = 1
+    private val REQUEST_VIDEO_CAPTURE = 2
 
     val repository = AddPostsRepository()
     val db = FirebaseFirestore.getInstance()
@@ -54,6 +59,7 @@ class AddPostsFragment() : BaseFragment() {
     override fun subscribeUi() {
         addPhotoClick()
         takePhotoClick()
+        dispatchTakeVideoIntent()
 
         shareButton.setOnClickListener {
             findNavController()
@@ -95,6 +101,15 @@ class AddPostsFragment() : BaseFragment() {
         }
     }
 
+    @SuppressLint("QueryPermissionsNeeded")
+    private fun dispatchTakeVideoIntent() {
+        videoBT.setOnClickListener {
+            Intent(MediaStore.ACTION_VIDEO_CAPTURE).also { takeVideoIntent ->
+                startActivityForResult(takeVideoIntent, REQUEST_VIDEO_CAPTURE)
+            }
+        }
+    }
+
     private fun chooseImageGallery() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
@@ -117,28 +132,42 @@ class AddPostsFragment() : BaseFragment() {
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
-            val imageBitmap = data?.extras?.get("data") as Bitmap
+            wybraneZdjecie.visibility = View.VISIBLE
+            val imageBitmap = intent?.extras?.get("data") as Bitmap
             wybraneZdjecie.setImageBitmap(imageBitmap)
 
             Log.d(PROFILE_DEBUG, "BITMAP: " + imageBitmap.byteCount.toString())
 
-                Glide.with(this)
-                    .load(imageBitmap)
-                    .into(wybraneZdjecie)
+            Glide.with(this)
+                .load(imageBitmap)
+                .into(wybraneZdjecie)
 
-                val stream = ByteArrayOutputStream()
-                val result = imageBitmap.compress(Bitmap.CompressFormat.JPEG, 25, stream)
-                val byteArray = stream.toByteArray()
+            val stream = ByteArrayOutputStream()
+            val result = imageBitmap.compress(Bitmap.CompressFormat.JPEG, 25, stream)
+            val byteArray = stream.toByteArray()
 
-                if (result) addVM.uploadUserPhoto(byteArray)
+            if (result) addVM.uploadUserPhoto(byteArray)
 
 
         } else if (requestCode == IMAGE_CHOOSE && resultCode == Activity.RESULT_OK) {
-            wybraneZdjecie.setImageURI(data?.data)
+            wybraneZdjecie.visibility = View.VISIBLE
+            wybraneZdjecie.setImageURI(intent?.data)
 
+        } else if (requestCode == REQUEST_VIDEO_CAPTURE && resultCode == Activity.RESULT_OK) {
+            wybraneVideo.visibility = View.VISIBLE
+            refreshVideoBT.visibility = View.VISIBLE
+            val uri : Uri = intent?.data!!
+            wybraneVideo.setVideoURI(uri)
+            wybraneVideo.start()
 
+            Log.d("ttttttttt", "$uri")
+
+            refreshVideoBT.setOnClickListener {
+                wybraneVideo.setVideoURI(intent?.data)
+                wybraneVideo.start()
+            }
         }
     }
 
@@ -147,7 +176,7 @@ class AddPostsFragment() : BaseFragment() {
 
 
         val dataPosts = hashMapOf(
-            "date" to Timestamp(Date().time-1),
+            "date" to Timestamp(Date().time - 1),
             "image_photo" to "",
             "name" to "",
             "uid" to uid,
@@ -161,7 +190,7 @@ class AddPostsFragment() : BaseFragment() {
             "posts" to random.toString(),
 
 
-        )
+            )
         db.collection("user").document(fbAuth.currentUser!!.uid)
             .set(dataUser, SetOptions.merge())
 

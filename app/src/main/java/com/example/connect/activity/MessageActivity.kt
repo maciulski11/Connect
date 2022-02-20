@@ -28,6 +28,7 @@ class MessageActivity: AppCompatActivity() {
     private lateinit var reference: DatabaseReference
     private lateinit var reference2: DatabaseReference
     var chatList = ArrayList<Chat>()
+    var userList = ArrayList<User>()
     val db = FirebaseFirestore.getInstance()
     var topic = ""
 
@@ -51,7 +52,7 @@ class MessageActivity: AppCompatActivity() {
         reference = FirebaseDatabase.getInstance("https://instugram-4e633-default-rtdb.europe-west1.firebasedatabase.app/")
             .getReference("user").child(userUid!!)
 
-        reference!!.addValueEventListener(object : ValueEventListener {
+        reference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
 
                 val user = snapshot.getValue(User::class.java)
@@ -95,6 +96,7 @@ class MessageActivity: AppCompatActivity() {
                             .collection("last_message")
                             .document(firebaseUser.uid)
                             .update("message", message)
+
                     }
 
                     override fun onCancelled(error: DatabaseError) {
@@ -137,8 +139,8 @@ class MessageActivity: AppCompatActivity() {
                 for (dataSnapShot: DataSnapshot in snapshot.children) {
                     val chat = dataSnapShot.getValue(Chat::class.java)
 
-                    if (chat!!.senderId.equals(senderId) && chat!!.receiverId.equals(receiverId) ||
-                        chat!!.senderId.equals(receiverId) && chat!!.receiverId.equals(senderId)
+                    if (chat!!.senderId == (senderId) && chat.receiverId == (receiverId) ||
+                        chat.senderId == (receiverId) && chat.receiverId == (senderId)
                     ) {
                         chatList.add(chat)
                     }

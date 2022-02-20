@@ -17,8 +17,7 @@ import com.example.connect.data.NotificationData
 import com.example.connect.data.User
 import de.hdodenhof.circleimageview.CircleImageView
 
-class MessageUsersAdapter(private val context: Context, private val userList: ArrayList<User>,
-                            private val lastList: ArrayList<LastMessage>):
+class MessageUsersAdapter(private val context: Context, private val userList: ArrayList<User>):
     RecyclerView.Adapter<MessageUsersAdapter.UserViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
@@ -32,9 +31,8 @@ class MessageUsersAdapter(private val context: Context, private val userList: Ar
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
 
         val user: User = userList[position]
-        val last: LastMessage = lastList[position]
-
-        holder.lastMessage.text = last.message
+        val lastM = LastMessage()
+        holder.lastMessage.text = lastM.message
         holder.name.text = user.name
         Glide.with(holder.itemView)
             .load(user.image)

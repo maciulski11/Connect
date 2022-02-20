@@ -8,6 +8,7 @@ import com.example.connect.base.BaseFragment
 import com.example.connect.data.Chat
 import com.example.connect.data.LastMessage
 import com.example.connect.data.User
+import com.example.connect.firebase.FirebaseServices
 import com.example.connect.view_model.EditProfileViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -24,11 +25,10 @@ class MessageUsersFragment: BaseFragment() {
     override val layout: Int = R.layout.fragment_message_users
 
     var userList = ArrayList<User>()
-    val lastList = ArrayList<LastMessage>()
 
     override fun subscribeUi() {
-       // FirebaseMessaging.getInstance().token.addOnCompleteListener {
-        //    FirebaseServices.token = it.result
+        //FirebaseMessaging.getInstance().token.addOnCompleteListener {
+          //  FirebaseServices.token = it.result
        //}
 
         userMessageRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
@@ -55,20 +55,17 @@ class MessageUsersFragment: BaseFragment() {
 
             override fun onDataChange(snapshot: DataSnapshot) {
                 userList.clear()
-                lastList.clear()
 
                 for (dataSnapShot: DataSnapshot in snapshot.children) {
                     val user = dataSnapShot.getValue(User::class.java)
-                    val last = dataSnapShot.getValue(LastMessage::class.java)
 
                     if (!user!!.uid.equals(userid)) {
                         userList.add(user)
-                        lastList.add(last!!)
 
                     }
                 }
 
-                val userAdapter = MessageUsersAdapter(context!!, userList, lastList)
+                val userAdapter = MessageUsersAdapter(context!!, userList)
                 userMessageRecyclerView.adapter = userAdapter
             }
 
