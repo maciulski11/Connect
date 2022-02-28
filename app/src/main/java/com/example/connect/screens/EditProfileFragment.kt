@@ -12,6 +12,7 @@ import com.example.connect.base.BaseFragment
 import com.example.connect.data.User
 import com.example.connect.view_model.EditProfileViewModel
 import kotlinx.android.synthetic.main.fragment_edit_profile.*
+import kotlinx.android.synthetic.main.fragment_share_posts.*
 import java.io.ByteArrayOutputStream
 
 class EditProfileFragment : BaseFragment() {
@@ -25,11 +26,11 @@ class EditProfileFragment : BaseFragment() {
 
     override fun subscribeUi() {
 
-        profileVM.user.observe(viewLifecycleOwner, { user ->
+        profileVM.user.observe(viewLifecycleOwner) { user ->
             bindUserData(user)
-        })
+        }
 
-        setupTakePictureClick()
+      //  setupTakePictureClick()
         setOnClckZapiszDane()
     }
 

@@ -14,6 +14,7 @@
         <entry key="app/src/main/res/drawable/ic_baseline_camera_alt_24.xml" value="0.2074074074074074" />
         <entry key="app/src/main/res/drawable/ic_baseline_grid_on_24.xml" value="0.2074074074074074" />
         <entry key="app/src/main/res/drawable/ic_baseline_image_2422.xml" value="0.138" />
+        <entry key="app/src/main/res/drawable/ic_location_24.xml" value="0.138" />
         <entry key="app/src/main/res/drawable/ic_message_24.xml" value="0.2074074074074074" />
         <entry key="app/src/main/res/drawable/ic_play_24.xml" value="0.138" />
         <entry key="app/src/main/res/drawable/ic_videocam_24.xml" value="0.138" />
@@ -48,7 +49,7 @@
         <entry key="app/src/main/res/layout/fragment_share_posts.xml" value="0.10520833333333333" />
         <entry key="app/src/main/res/layout/item_find_photo.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_image_profile.xml" value="0.19305555555555556" />
-        <entry key="app/src/main/res/layout/item_post.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/item_post.xml" value="0.3005181347150259" />
         <entry key="app/src/main/res/layout/item_receive_message.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_sent_message.xml" value="0.165" />
         <entry key="app/src/main/res/layout/item_small_image.xml" value="0.165" />

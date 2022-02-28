@@ -61,7 +61,6 @@ class PostsFragment: BaseFragment() {
                     }
 
                     for (dc: DocumentChange in value!!.documentChanges) {
-
                         //sprawdxzamy czy dokument zostal poprawnie dodany:
                         if (dc.type == DocumentChange.Type.ADDED) {
 

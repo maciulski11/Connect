@@ -1,5 +1,6 @@
 package com.example.connect.repository
 
+import android.net.Uri
 import android.util.Log
 import com.example.connect.data.Posts
 import com.example.connect.data.User
@@ -59,6 +60,24 @@ class AddPostsRepository {
             }
             .addOnFailureListener {
                 Log.d(REPO_DEBUG, it.message.toString())
+            }
+    }
+
+    fun uploadGalerryPhoto(imageUri: Uri){
+        storage.getReference("photoPosts")
+            .child("${random1}.jpg")
+            .putFile(imageUri)
+            .addOnSuccessListener {
+                getPhotoDownloadUrl(it.storage)
+            }
+    }
+
+    fun uploadVideo(videoUri: Uri){
+        storage.getReference("videoPosts")
+            .child("${random1}.png")
+            .putFile(videoUri)
+            .addOnSuccessListener {
+                getPhotoDownloadUrl(it.storage)
             }
     }
 }

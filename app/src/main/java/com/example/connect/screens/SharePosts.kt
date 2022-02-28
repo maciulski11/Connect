@@ -83,7 +83,7 @@ class SharePosts: BaseFragment() {
                 "name" to userName,
                 "image_photo" to imagePosts,
                 "place" to place,
-                "image" to image
+                "image" to image,
             )
             db.collection("posts").document(id)
                 .set(dataPosts, SetOptions.merge())

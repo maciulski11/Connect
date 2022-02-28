@@ -12,7 +12,6 @@ import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import android.widget.VideoView
 import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
@@ -20,14 +19,14 @@ import com.example.connect.R
 import com.example.connect.base.BaseFragment
 import com.example.connect.data.Posts
 import com.example.connect.data.User
-import com.example.connect.repository.AddPostsRepository
 import com.example.connect.view_model.AddPostsViewModel
+import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
+import com.google.type.Date
 import kotlinx.android.synthetic.main.fragment_add_posts.*
 import java.io.ByteArrayOutputStream
-import java.sql.Timestamp
 import java.util.*
 
 class AddPostsFragment() : BaseFragment() {
@@ -38,7 +37,6 @@ class AddPostsFragment() : BaseFragment() {
     private val REQUEST_IMAGE_CAPTURE = 1
     private val REQUEST_VIDEO_CAPTURE = 2
 
-    val repository = AddPostsRepository()
     val db = FirebaseFirestore.getInstance()
     val random = Random().nextInt(999999999)
     val fbAuth = FirebaseAuth.getInstance()
@@ -46,7 +44,6 @@ class AddPostsFragment() : BaseFragment() {
     val addVM = AddPostsViewModel()
     val posts = Posts()
     val user = User()
-
 
     companion object {
         //image pick code
@@ -132,10 +129,10 @@ class AddPostsFragment() : BaseFragment() {
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
             wybraneZdjecie.visibility = View.VISIBLE
-            val imageBitmap = intent?.extras?.get("data") as Bitmap
+            val imageBitmap = data?.extras?.get("data") as Bitmap
             wybraneZdjecie.setImageBitmap(imageBitmap)
 
             Log.d(PROFILE_DEBUG, "BITMAP: " + imageBitmap.byteCount.toString())
@@ -153,19 +150,24 @@ class AddPostsFragment() : BaseFragment() {
 
         } else if (requestCode == IMAGE_CHOOSE && resultCode == Activity.RESULT_OK) {
             wybraneZdjecie.visibility = View.VISIBLE
-            wybraneZdjecie.setImageURI(intent?.data)
+
+            val imageUri = data?.data!!
+            wybraneZdjecie.setImageURI(imageUri)
+
+            addVM.uploadGalerryPhoto(imageUri)
+
 
         } else if (requestCode == REQUEST_VIDEO_CAPTURE && resultCode == Activity.RESULT_OK) {
             wybraneVideo.visibility = View.VISIBLE
             refreshVideoBT.visibility = View.VISIBLE
-            val uri : Uri = intent?.data!!
-            wybraneVideo.setVideoURI(uri)
+            val videoUri : Uri = data?.data!!
+            wybraneVideo.setVideoURI(videoUri)
             wybraneVideo.start()
 
-            Log.d("ttttttttt", "$uri")
+            addVM.uploadVideo(videoUri)
 
             refreshVideoBT.setOnClickListener {
-                wybraneVideo.setVideoURI(intent?.data)
+                wybraneVideo.setVideoURI(videoUri)
                 wybraneVideo.start()
             }
         }
@@ -174,9 +176,8 @@ class AddPostsFragment() : BaseFragment() {
     private fun next() {
         val uid = fbAuth.currentUser!!.uid
 
-
         val dataPosts = hashMapOf(
-            "date" to Timestamp(Date().time - 1),
+            "timestamp" to Timestamp.now(),
             "image_photo" to "",
             "name" to "",
             "uid" to uid,

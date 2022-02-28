@@ -9,9 +9,10 @@ import com.bumptech.glide.Glide
 import com.example.connect.R
 import com.example.connect.data.Posts
 import kotlinx.android.synthetic.main.item_post.view.*
+import uk.co.senab.photoview.PhotoViewAttacher
+import java.util.*
 
 class PostsAdapter (private val postsList: ArrayList<Posts>): RecyclerView.Adapter<PostsAdapter.MyViewHolder>() {
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostsAdapter.MyViewHolder {
 
@@ -37,8 +38,8 @@ class PostsAdapter (private val postsList: ArrayList<Posts>): RecyclerView.Adapt
             .circleCrop()
             .into(photoSmall)
 
-        //val photoZomm = PhotoViewAttacher(image)
-        //photoZomm.update()
+        val photoZomm = PhotoViewAttacher(image)
+        photoZomm.update()
 
     }
 
@@ -53,6 +54,7 @@ class PostsAdapter (private val postsList: ArrayList<Posts>): RecyclerView.Adapt
         fun bindView(p: Posts) {
             view.nameTV.text = p.name
             view.descriptionTV.text = p.description
+            view.timestampTV.text = p.timestamp?.toDate().toString()
             view.placeTV.text = p.place
         }
 
