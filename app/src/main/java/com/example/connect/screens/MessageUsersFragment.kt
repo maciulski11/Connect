@@ -5,11 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.connect.R
 import com.example.connect.adapters.MessageUsersAdapter
 import com.example.connect.base.BaseFragment
-import com.example.connect.data.Chat
-import com.example.connect.data.LastMessage
 import com.example.connect.data.User
-import com.example.connect.firebase.FirebaseServices
-import com.example.connect.view_model.EditProfileViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
@@ -18,8 +14,6 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.android.synthetic.main.fragment_message_users.*
-import kotlinx.android.synthetic.main.fragment_profile.*
-import kotlinx.android.synthetic.main.item_users_message.*
 
 class MessageUsersFragment: BaseFragment() {
     override val layout: Int = R.layout.fragment_message_users

@@ -12,6 +12,7 @@ import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
@@ -26,6 +27,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import kotlinx.android.synthetic.main.fragment_add_posts.*
 import java.io.ByteArrayOutputStream
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 class AddPostsFragment() : BaseFragment() {
@@ -57,7 +60,7 @@ class AddPostsFragment() : BaseFragment() {
         takePhotoClick()
         dispatchTakeVideoIntent()
 
-        shareButton.setOnClickListener {
+        nextButton.setOnClickListener {
             findNavController()
                 .navigate(AddPostsFragmentDirections.actionAddPostsFragmentToSharePosts().actionId)
             next()
@@ -172,6 +175,7 @@ class AddPostsFragment() : BaseFragment() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun next() {
         val uid = fbAuth.currentUser!!.uid
 
