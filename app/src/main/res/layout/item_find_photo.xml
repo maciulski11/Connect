@@ -9,10 +9,8 @@
         android:id="@+id/findPhoto"
         android:layout_width="142dp"
         android:layout_height="152dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginRight="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
         android:background="@color/black"/>
 
 </LinearLayout>

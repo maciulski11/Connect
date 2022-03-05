@@ -24,7 +24,6 @@ import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
-import com.google.type.Date
 import kotlinx.android.synthetic.main.fragment_add_posts.*
 import java.io.ByteArrayOutputStream
 import java.util.*
@@ -177,7 +176,7 @@ class AddPostsFragment() : BaseFragment() {
         val uid = fbAuth.currentUser!!.uid
 
         val dataPosts = hashMapOf(
-            "timestamp" to Timestamp.now(),
+            "date" to Timestamp.now(),
             "image_photo" to "",
             "name" to "",
             "uid" to uid,

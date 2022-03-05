@@ -9,5 +9,5 @@ data class Posts(
     val image_photo: String? = null,
     var place: String? = null,
     var image: String? = null,
-    var timestamp: Timestamp? = null
-)
+    var date: Timestamp? = null
+    )

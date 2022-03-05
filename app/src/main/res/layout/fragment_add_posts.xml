@@ -4,14 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_marginTop="20dp">
+    android:layout_marginTop="28dp">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add Post"
-        android:textColor="@color/powderblue"
-        android:textSize="38sp"
+        android:textColor="@color/black"
+        android:textSize="40sp"
         android:gravity="center"
         android:textStyle="bold"/>
 
@@ -99,7 +99,7 @@
             android:layout_height="wrap_content"
             android:text="Next"
             android:textSize="20sp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:layout_gravity="center"
             android:layout_marginTop="8dp"/>
 

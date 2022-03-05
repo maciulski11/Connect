@@ -10,6 +10,9 @@ import com.example.connect.R
 import com.example.connect.data.Posts
 import kotlinx.android.synthetic.main.item_post.view.*
 import uk.co.senab.photoview.PhotoViewAttacher
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 class PostsAdapter (private val postsList: ArrayList<Posts>): RecyclerView.Adapter<PostsAdapter.MyViewHolder>() {
@@ -41,6 +44,8 @@ class PostsAdapter (private val postsList: ArrayList<Posts>): RecyclerView.Adapt
         val photoZomm = PhotoViewAttacher(image)
         photoZomm.update()
 
+
+
     }
 
     override fun getItemId(i: Int): Long = i.toLong()
@@ -54,7 +59,7 @@ class PostsAdapter (private val postsList: ArrayList<Posts>): RecyclerView.Adapt
         fun bindView(p: Posts) {
             view.nameTV.text = p.name
             view.descriptionTV.text = p.description
-            view.timestampTV.text = p.timestamp?.toDate().toString()
+            view.timestampTV.text = p.date?.toDate().toString()
             view.placeTV.text = p.place
         }
 

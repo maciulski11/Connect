@@ -54,7 +54,7 @@ class EditPostActivity: AppCompatActivity() {
 
 
                     nameEditPost.text = postName
-                    placeEditPost.text = place
+                    placeTV.text = place
                     descriptionEditPost.text = postDescription
 
                     Glide.with(this@EditPostActivity)
