@@ -9,12 +9,14 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
 import com.bumptech.glide.Glide
 import com.example.connect.R
 import com.example.connect.activity.MessageActivity
 import com.example.connect.data.LastMessage
 import com.example.connect.data.NotificationData
 import com.example.connect.data.User
+import com.example.connect.view_model.EditProfileViewModel
 import de.hdodenhof.circleimageview.CircleImageView
 
 class MessageUsersAdapter(private val context: Context, private val userList: ArrayList<User>):
@@ -32,6 +34,7 @@ class MessageUsersAdapter(private val context: Context, private val userList: Ar
 
         val user: User = userList[position]
         val lastM = LastMessage()
+
         holder.lastMessage.text = lastM.message
         holder.name.text = user.name
         Glide.with(holder.itemView)

@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Connect</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="google_maps_key">AIzaSyB6U7H-WhJmOZVnP-VszOInPuVPrFwncgA</string>
+
     <string name="description">description…</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -8,6 +11,8 @@
     <string name="search">Search...</string>
     <string name="returnn">Return</string>
     <string name="contacts">Contacts:</string>
+    <string name="string_map">Whole Map</string>
+    <string name="string_location">Current Location</string>
 
 
 </resources>

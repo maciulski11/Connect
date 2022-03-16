@@ -15,4 +15,7 @@
     <color name="colorTło">#1E1D5B</color>
     <color name="szaroBiały">#8F8F8F</color>
     <color name="prawieCzarny">#505050</color>
+    <color name="ic_ikona_app_official_background">#3DDC84</color>
+    <color name="ic_launcher_background">#FFFFFF</color>
+
 </resources>

@@ -1,21 +1,25 @@
 package com.example.connect.adapters
 
+import android.annotation.SuppressLint
+import android.content.Context
+import android.icu.text.SimpleDateFormat
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
+import android.widget.VideoView
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.connect.R
 import com.example.connect.data.Posts
 import kotlinx.android.synthetic.main.item_post.view.*
 import uk.co.senab.photoview.PhotoViewAttacher
-import java.text.SimpleDateFormat
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 import java.util.*
 
-class PostsAdapter (private val postsList: ArrayList<Posts>): RecyclerView.Adapter<PostsAdapter.MyViewHolder>() {
+class PostsAdapter (private val context: Context, private val postsList: ArrayList<Posts>): RecyclerView.Adapter<PostsAdapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostsAdapter.MyViewHolder {
 
@@ -31,7 +35,9 @@ class PostsAdapter (private val postsList: ArrayList<Posts>): RecyclerView.Adapt
         holder.bindView(postss)
 
         val image = holder.itemView.findViewById<ImageView>(R.id.imagePosts)
-        Glide.with(holder.itemView)
+        val video = holder.itemView.findViewById<VideoView>(R.id.videoPosts)
+
+            Glide.with(holder.itemView)
             .load(postss.image_photo)
             .into(image)
 
@@ -59,7 +65,7 @@ class PostsAdapter (private val postsList: ArrayList<Posts>): RecyclerView.Adapt
         fun bindView(p: Posts) {
             view.nameTV.text = p.name
             view.descriptionTV.text = p.description
-            view.timestampTV.text = p.date?.toDate().toString()
+            view.timestampTV.text = p.date
             view.placeTV.text = p.place
         }
 

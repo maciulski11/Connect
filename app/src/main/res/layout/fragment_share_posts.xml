@@ -5,13 +5,41 @@
     android:orientation="vertical"
     android:layout_marginTop="30dp">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center">
+
     <ImageView
-        android:id="@+id/edytujZdjecie"
+        android:id="@+id/editPhoto"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"/>
+        android:layout_margin="8dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <VideoView
+        android:id="@+id/editVideo"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_margin="8dp"
+        android:visibility="invisible"
+        android:layout_gravity="center_horizontal"/>
+
+        <ImageButton
+            android:id="@+id/refreshVideoBTT"
+            android:layout_width="44dp"
+            android:layout_height="43dp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="165dp"
+            android:layout_marginBottom="4dp"
+            android:src="@drawable/ic_play_24"
+            android:visibility="invisible"/>
+
+    </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,6 +63,31 @@
             android:hint="description..."
             android:textSize="18sp"
             android:textColor="@color/black"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:orientation="horizontal"
+            android:id="@+id/locationClick">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:src="@drawable/location_black" />
+
+            <TextView
+                android:id="@+id/placeTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="3dp"
+                android:hint="Location"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/shareBT"

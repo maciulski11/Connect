@@ -6,6 +6,7 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.icu.text.SimpleDateFormat
 import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
@@ -17,6 +18,7 @@ import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.connect.R
+import com.example.connect.activity.MapsActivity
 import com.example.connect.base.BaseFragment
 import com.example.connect.data.Posts
 import com.example.connect.data.User
@@ -25,6 +27,7 @@ import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
+import com.google.type.DateTime
 import kotlinx.android.synthetic.main.fragment_add_posts.*
 import java.io.ByteArrayOutputStream
 import java.time.LocalDateTime
@@ -55,6 +58,7 @@ class AddPostsFragment() : BaseFragment() {
         private val PERMISSION_CODE = 1001
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun subscribeUi() {
         addPhotoClick()
         takePhotoClick()
@@ -103,9 +107,12 @@ class AddPostsFragment() : BaseFragment() {
     @SuppressLint("QueryPermissionsNeeded")
     private fun dispatchTakeVideoIntent() {
         videoBT.setOnClickListener {
-            Intent(MediaStore.ACTION_VIDEO_CAPTURE).also { takeVideoIntent ->
+            /*Intent(MediaStore.ACTION_VIDEO_CAPTURE).also { takeVideoIntent ->
                 startActivityForResult(takeVideoIntent, REQUEST_VIDEO_CAPTURE)
-            }
+            } */
+
+            val intent = Intent(context, MapsActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -179,9 +186,14 @@ class AddPostsFragment() : BaseFragment() {
     private fun next() {
         val uid = fbAuth.currentUser!!.uid
 
+        val current = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy   HH:mm:ss")
+        val date = current.format(formatter)
+
         val dataPosts = hashMapOf(
-            "date" to Timestamp.now(),
+            "date" to date,
             "image_photo" to "",
+            "video" to "",
             "name" to "",
             "uid" to uid,
             "place" to "",
@@ -197,7 +209,6 @@ class AddPostsFragment() : BaseFragment() {
             )
         db.collection("user").document(fbAuth.currentUser!!.uid)
             .set(dataUser, SetOptions.merge())
-
 
     }
 

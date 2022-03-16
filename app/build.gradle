@@ -83,11 +83,21 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
 
-    // Retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
-    implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
-
     implementation 'com.commit451:PhotoView:1.2.4'
+
+    //GPS
+    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.1'
+    implementation 'com.google.android.gms:play-services-location:19.0.1'
+    implementation 'com.google.android.gms:play-services-maps:18.0.2'
+
+    // Pusher dependency
+    implementation 'com.pusher:pusher-java-client:1.5.0'
+    // Google maps API
+    implementation 'com.google.android.gms:play-services-maps:18.0.2'
+    // Retrofit dependencies
+    implementation 'com.squareup.retrofit2:converter-scalars:2.3.0'
+
 
 }
 

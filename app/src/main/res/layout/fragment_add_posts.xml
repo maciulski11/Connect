@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_margin="8dp"
-            tools:visibility="invisible"
+            android:visibility="invisible"
             android:layout_gravity="center_horizontal"/>
 
         <VideoView

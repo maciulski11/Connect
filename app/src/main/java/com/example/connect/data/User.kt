@@ -7,6 +7,7 @@ data class User(
     val image: String? = null,
     val nick: String? = null,
     val image_posts: String? = null,
+    val video_posts: String? = null,
     var posts: String? = null,
     val describe_profile: String? = null,
     val list_posts: List<String>? = null,

@@ -65,19 +65,6 @@ class EditProfileFragment : BaseFragment() {
         }
     }
 
-    private fun setupTakePictureClick() {
-        //funkcja ktora odpowiada za zrobienie zdjecia po klikniecu w nasz imagebutton
-        userImage.setOnClickListener {
-
-            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE_SECURE)
-            try {
-                startActivityForResult(intent, REQUEST_IMAGE_CAPTURE)
-            } catch (exc: Exception) {
-                Log.d(PROFILE_DEBUG, exc.message.toString())
-            }
-        }
-    }
-
     private fun setOnClckZapiszDane() {
         zapiszNickBT.setOnClickListener {
             val name = podajImie.text.toString()

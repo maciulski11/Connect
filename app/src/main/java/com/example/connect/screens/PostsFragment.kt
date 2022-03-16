@@ -36,7 +36,7 @@ class PostsFragment: BaseFragment() {
         //inicjujemy nasza liste:
         userArrayList = arrayListOf()
 
-        adapter = PostsAdapter(userArrayList)
+        adapter = PostsAdapter(requireContext(), userArrayList)
         recyclerViewPosts.adapter = adapter
 
         pobierzDaneZFirebase()

@@ -42,14 +42,14 @@ class AddPostsRepository {
      fun getPhotoDownloadUrl(storage: StorageReference) {
         storage.downloadUrl
             .addOnSuccessListener {
-                updateUserPhoto(it.toString())
+                updatePhoto(it.toString())
             }
             .addOnFailureListener {
                 Log.d(REPO_DEBUG, it.message.toString())
             }
     }
 
-    private fun updateUserPhoto(url: String?) {
+    private fun updatePhoto(url: String?) {
 
         cloud.collection("user")
             .document(auth.currentUser!!.uid)
@@ -77,7 +77,31 @@ class AddPostsRepository {
             .child("${random1}.png")
             .putFile(videoUri)
             .addOnSuccessListener {
-                getPhotoDownloadUrl(it.storage)
+                getVideoDownloadUrl(it.storage)
+            }
+    }
+
+    fun updateVideo(url: String?) {
+        cloud.collection("user")
+            .document(auth.currentUser!!.uid)
+            .update("video_posts", url)
+            .addOnSuccessListener {
+                Log.d(REPO_DEBUG, "UPDATE USER VIDEO!")
+
+            }
+            .addOnFailureListener {
+                Log.d(REPO_DEBUG, it.message.toString())
+            }
+    }
+
+
+    fun getVideoDownloadUrl(storage: StorageReference) {
+        storage.downloadUrl
+            .addOnSuccessListener {
+                updateVideo(it.toString())
+            }
+            .addOnFailureListener {
+                Log.d(REPO_DEBUG, it.message.toString())
             }
     }
 }

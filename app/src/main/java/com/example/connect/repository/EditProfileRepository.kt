@@ -1,5 +1,6 @@
 package com.example.connect.repository
 
+import android.net.Uri
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -32,6 +33,15 @@ class EditProfileRepository {
             }
             .addOnFailureListener {
                 Log.d(REPO_DEBUG, it.message.toString())
+            }
+    }
+
+    fun uploadVideo(videoUri: Uri){
+        storage.getReference("videoPosts")
+            .child("${auth.currentUser!!.uid}.png")
+            .putFile(videoUri)
+            .addOnSuccessListener {
+                Log.d(REPO_DEBUG, "COMPLETE UPLOAD VIDEO")
             }
     }
 
@@ -68,7 +78,7 @@ class EditProfileRepository {
             .get()//potem uzyskaj ten dokument
             .addOnSuccessListener {
                 val user = it.toObject(User::class.java)
-                cloudResult.postValue(user)
+                cloudResult.postValue(user!!)
             }
             .addOnFailureListener {
                 Log.d(REPO_DEBUG, it.message.toString())
