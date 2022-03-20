@@ -21,6 +21,7 @@
         <entry key="app/src/main/res/drawable/ic_message_24.xml" value="0.2074074074074074" />
         <entry key="app/src/main/res/drawable/ic_play_24.xml" value="0.138" />
         <entry key="app/src/main/res/drawable/ic_videocam_24.xml" value="0.138" />
+        <entry key="app/src/main/res/drawable/info_back.xml" value="0.146" />
         <entry key="app/src/main/res/drawable/localization_black.xml" value="0.138" />
         <entry key="app/src/main/res/drawable/lupka.xml" value="0.21324200913242009" />
         <entry key="app/src/main/res/drawable/message_box_background.xml" value="0.2074074074074074" />
@@ -35,7 +36,7 @@
         <entry key="app/src/main/res/layout/activity_log_reg.xml" value="0.2171875" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.203125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.125" />
-        <entry key="app/src/main/res/layout/activity_maps.xml" value="0.18640444634459172" />
+        <entry key="app/src/main/res/layout/activity_maps.xml" value="0.45" />
         <entry key="app/src/main/res/layout/activity_message.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_share.xml" value="0.2171875" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.1" />
