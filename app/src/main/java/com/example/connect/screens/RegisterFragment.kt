@@ -11,7 +11,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_register.*
 
-class RegisterFragment: BaseFragment() {
+class RegisterFragment : BaseFragment() {
 
     override val layout: Int = R.layout.fragment_register
 
@@ -22,6 +22,7 @@ class RegisterFragment: BaseFragment() {
 
     override fun subscribeUi() {
         setOnClckZarejestruj()
+        comeBackLogin()
     }
 
     private fun setOnClckZarejestruj() {
@@ -31,33 +32,55 @@ class RegisterFragment: BaseFragment() {
             val powtorzHaslo = powtorzHasloET.text.toString()
             val wpiszImie = wpiszImiee.text.toString()
 
-            if (wpiszHaslo == powtorzHaslo) {
-                //tworzymy funkcje ktora doda nasz email i haslo do bazy
-                fbAuth.createUserWithEmailAndPassword(wpiszEmail, wpiszHaslo)
-                    .addOnSuccessListener { authRes ->
-                        if (authRes.user != null) {
-                            val user = com.example.connect.data.User(
-                                authRes.user!!.uid,
-                                authRes.user!!.email,
-                                wpiszImie
-                            )
-                            regVM.createNewUser(user)
-                            regVM.writeNewUserRealtimeFirebase(user)
-                            findNavController()
-                                .navigate(RegisterFragmentDirections.actionRegisterFragmentToEditProfileFragment2().actionId)
+            when {
+                wpiszHaslo == powtorzHaslo && wpiszEmail != "" && wpiszHaslo != "" -> {
+                    //tworzymy funkcje ktora doda nasz email i haslo do bazy
+                    fbAuth.createUserWithEmailAndPassword(wpiszEmail, wpiszHaslo)
+                        .addOnSuccessListener { authRes ->
+                            if (authRes.user != null) {
+                                val user = com.example.connect.data.User(
+                                    authRes.user!!.uid,
+                                    authRes.user!!.email,
+                                    wpiszImie
+                                )
+                                regVM.createNewUser(user)
+                                regVM.writeNewUserRealtimeFirebase(user)
+                                findNavController()
+                                    .navigate(RegisterFragmentDirections.actionRegisterFragmentToEditProfileFragment2().actionId)
+                            }
                         }
-                    }
-                    .addOnFailureListener { exception ->
-                        Snackbar.make(requireView(), "Cos poszlo nie tak", Snackbar.LENGTH_SHORT)
-                            .show()
-                        Log.d(DEBUG, exception.message.toString())
-                    }
-            } else if (wpiszHaslo != powtorzHaslo) {
-                Snackbar.make(requireView(), "Hasła są różne.", Snackbar.LENGTH_SHORT).show()
+                        .addOnFailureListener { exception ->
+                            Snackbar.make(
+                                requireView(),
+                                "Cos poszlo nie tak",
+                                Snackbar.LENGTH_SHORT
+                            )
+                                .show()
+                            Log.d(DEBUG, exception.message.toString())
+                        }
+                }
+                wpiszHaslo != powtorzHaslo -> {
+                    Snackbar.make(requireView(), "Passwords are different.", Snackbar.LENGTH_LONG)
+                        .show()
+
+                }
+                wpiszEmail == "" || wpiszHaslo == "" || powtorzHaslo == "" || wpiszImie == "" -> {
+
+                    Snackbar.make(requireView(), "You must complete data.", Snackbar.LENGTH_LONG)
+                        .show()
+
+                }
+
             }
         }
     }
 
+    fun comeBackLogin(){
+        backLoginBT.setOnClickListener{
+            findNavController()
+                .navigate(RegisterFragmentDirections.actionRegisterFragmentToLoginFragment().actionId)
+        }
+    }
 
     override fun unsubscribeUi() {
     }

@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:gravity="center_horizontal"
-        android:text="Logowanie"
+        android:text="@string/login"
         android:textSize="40sp"
         android:textColor="@color/black"/>
 
@@ -23,7 +23,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginRight="16dp"
-        android:hint="e-mail" />
+        android:hint="@string/e_mail" />
 
     <EditText
         android:id="@+id/hasloInput"
@@ -32,7 +32,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginRight="16dp"
-        android:hint="hasło"
+        android:hint="@string/password"
         android:inputType="textPassword" />
 
     <Button
@@ -41,14 +41,14 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
-        android:text="Zaloguj się" />
+        android:text="@string/sign_in" />
 
     <Button
         android:id="@+id/przeniesRejestracja"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Zarejestruj" />
+        android:text="@string/registration" />
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button_google"

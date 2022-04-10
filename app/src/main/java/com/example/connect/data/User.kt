@@ -1,5 +1,7 @@
 package com.example.connect.data
 
+import android.location.Geocoder
+
 data class User(
     val uid: String? = null,
     val email: String? = null,
@@ -11,4 +13,6 @@ data class User(
     var posts: String? = null,
     val describe_profile: String? = null,
     val list_posts: List<String>? = null,
+    val latitude: Double? = 0.0,
+    val longitude: Double? = 0.0
     )

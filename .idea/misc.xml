@@ -7,6 +7,7 @@
         <entry key="app/src/main/res/drawable-xxhdpi/ic_logout.xml" value="0.2074074074074074" />
         <entry key="app/src/main/res/drawable/btn_background.xml" value="0.2074074074074074" />
         <entry key="app/src/main/res/drawable/domek.xml" value="0.21324200913242009" />
+        <entry key="app/src/main/res/drawable/ic_arrow_back_24.xml" value="0.146" />
         <entry key="app/src/main/res/drawable/ic_back.xml" value="0.2074074074074074" />
         <entry key="app/src/main/res/drawable/ic_backspace_24.xml" value="0.2074074074074074" />
         <entry key="app/src/main/res/drawable/ic_baseline_add_241.xml" value="0.21324200913242009" />
@@ -35,15 +36,15 @@
         <entry key="app/src/main/res/layout/activity_location.xml" value="0.18640444634459172" />
         <entry key="app/src/main/res/layout/activity_log_reg.xml" value="0.2171875" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.203125" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.125" />
-        <entry key="app/src/main/res/layout/activity_maps.xml" value="0.45" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="2.0" />
+        <entry key="app/src/main/res/layout/activity_maps.xml" value="0.2006269592476489" />
         <entry key="app/src/main/res/layout/activity_message.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_share.xml" value="0.2171875" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_add_posts.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_create_profile.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_edit_posts.xml" value="0.19305555555555556" />
-        <entry key="app/src/main/res/layout/fragment_edit_profile.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_edit_profile.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_find.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_location.xml" value="0.18640444634459172" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.2171875" />
@@ -52,7 +53,7 @@
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_posts.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_register.xml" value="0.2171875" />
+        <entry key="app/src/main/res/layout/fragment_register.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_share.xml" value="0.2171875" />
         <entry key="app/src/main/res/layout/fragment_share_posts.xml" value="0.335" />
         <entry key="app/src/main/res/layout/item_find_photo.xml" value="0.25" />

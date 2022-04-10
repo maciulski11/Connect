@@ -92,10 +92,6 @@ class PostsFragment: BaseFragment() {
             R.id.notificationsButton -> {
                // findNavController()
                    // .navigate(PostsFragmentDirections.actionPostsFragmentToNotificationsFragment().actionId)
-                    fbAuth.signOut()
-                    requireActivity().finish()
-                    val intent = Intent(requireContext(), LogRegActivity::class.java)
-                    startActivity(intent)
             }
         }
         return false

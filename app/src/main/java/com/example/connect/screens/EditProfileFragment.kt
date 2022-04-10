@@ -30,7 +30,7 @@ class EditProfileFragment : BaseFragment() {
             bindUserData(user)
         }
 
-      //  setupTakePictureClick()
+        setupTakePictureClick()
         setOnClckZapiszDane()
     }
 
@@ -62,6 +62,19 @@ class EditProfileFragment : BaseFragment() {
             val byteArray = stream.toByteArray()
 
             if (result) profileVM.uploadUserPhoto(byteArray)
+        }
+    }
+
+    private fun setupTakePictureClick() {
+        //funkcja ktora odpowiada za zrobienie zdjecia po klikniecu w nasz imagebutton
+        userImage.setOnClickListener {
+
+            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE_SECURE)
+            try {
+                startActivityForResult(intent, REQUEST_IMAGE_CAPTURE)
+            } catch (exc: Exception) {
+                Log.d(PROFILE_DEBUG, exc.message.toString())
+            }
         }
     }
 

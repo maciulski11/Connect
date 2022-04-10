@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.106"
         app:navGraph="@navigation/navigation_manu"
-        tools:layout="@layout/fragment_posts"/>
+        tools:layout="@layout/fragment_posts" />
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -29,7 +29,7 @@ class SplashScreenActivity : AppCompatActivity() {
         @Suppress("DEPRECATION")
         Handler().postDelayed(
             {
-                startActivity(Intent(this@SplashScreenActivity, MainActivity::class.java))
+                startActivity(Intent(this@SplashScreenActivity, LogRegActivity::class.java))
                 finish()
             },
             800

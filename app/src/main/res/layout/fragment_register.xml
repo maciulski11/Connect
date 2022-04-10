@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="30dp"
     android:orientation="vertical">
 
+    <ImageView
+        android:id="@+id/backLoginBT"
+        android:layout_width="40dp"
+        android:layout_height="35dp"
+        android:src="@drawable/ic_arrow_back_24" />
+
     <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="64dp"
         android:gravity="center_horizontal"
-        android:text="Rejestracja"
+        android:text="@string/registration"
         android:textColor="@color/black"
         android:textSize="40sp" />
 
@@ -19,46 +26,38 @@
         android:id="@+id/wpiszEmailET"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="4dp"
-        android:hint="wpisz e-mail" />
+        android:layout_marginTop="40dp"
+        android:hint="@string/enter_e_mial" />
 
     <EditText
         android:id="@+id/wpiszImiee"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="4dp"
-        android:hint="wpisz imię i nazwisko" />
+        android:layout_marginTop="12dp"
+        android:hint="@string/enter_your_name_and_surename"/>
 
     <EditText
         android:id="@+id/wpiszHasloET"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="4dp"
-        android:hint="wpisz hasło"
+        android:layout_marginTop="12dp"
+        android:hint="@string/enter_the_password"
         android:inputType="textPassword" />
 
     <EditText
         android:id="@+id/powtorzHasloET"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:hint="powtórz hasło"
+        android:layout_marginTop="12dp"
+        android:hint="@string/re_enter_the_password"
         android:inputType="textPassword" />
 
     <Button
         android:id="@+id/zarejestrujBT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="24dp"
-        android:text="Zarejestruj" />
-
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="52dp"
+        android:text="@string/register"/>
 
 </LinearLayout>

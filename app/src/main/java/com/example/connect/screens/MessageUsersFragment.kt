@@ -59,7 +59,7 @@ class MessageUsersFragment: BaseFragment() {
                     }
                 }
 
-                val userAdapter = MessageUsersAdapter(context!!, userList)
+                val userAdapter = context?.let { MessageUsersAdapter(it, userList) }
                 userMessageRecyclerView.adapter = userAdapter
             }
 

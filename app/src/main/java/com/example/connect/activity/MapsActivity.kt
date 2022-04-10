@@ -1,19 +1,16 @@
 package com.example.connect.activity
 
 import android.Manifest
-import android.annotation.SuppressLint
 import android.content.pm.PackageManager
-import android.graphics.Point
 import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
 import android.view.View
-import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.core.view.isVisible
 import com.example.connect.R
+import com.example.connect.data.User
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -22,9 +19,10 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 import kotlinx.android.synthetic.main.activity_maps.*
-import kotlinx.android.synthetic.main.fragment_share_posts.*
 import java.util.*
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener,
@@ -33,6 +31,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     private lateinit var mMap: GoogleMap
     private lateinit var lastLocation: Location
     private lateinit var fusedLocationClient: FusedLocationProviderClient
+
+    private var user = User()
+    val db = FirebaseFirestore.getInstance()
+    val auth = FirebaseAuth.getInstance()
 
     private var latitude = 0.0
     private var longitude = 0.0
@@ -65,7 +67,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         setUpMap()
     }
 
-    private fun getAddress(lat: LatLng): String? {
+    private fun getAddress(lat: LatLng): String {
         val geocoder = Geocoder(this)
         val list = geocoder.getFromLocation(lat.latitude, lat.longitude,1)
         return list[0].getAddressLine(0)
@@ -99,12 +101,30 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
     override fun onMarkerClick(marker: Marker): Boolean {
         confirmInfo.visibility = View.VISIBLE
-        cancelBT.setOnClickListener { confirmInfo.visibility = View.INVISIBLE }
 
 
-        locationEditText.setText("${getAddress(LatLng(latitude, longitude))}")
+        cancelBT.setOnClickListener {
+            confirmInfo.visibility = View.INVISIBLE
+            mMap.clear()
+            locationEditText.setText("")
+        }
+
+            addKordyFirebase()
+
+
+
+        locationEditText.setText("${LatLng(latitude, longitude)}")
 
         return false
+    }
+
+    fun addKordyFirebase(){
+        val uid = auth.currentUser!!.uid
+
+
+        db.collection("user")
+            .document(uid)
+            .update("coordinates", LatLng(latitude, longitude))
     }
 
     private fun setUpMap() {
