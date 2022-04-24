@@ -18,13 +18,21 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="4dp"
-            android:layout_marginLeft="6dp"
             android:layout_marginRight="6dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_backspace_24"
+                    android:id="@+id/return_posts"
+                    android:layout_marginEnd="10dp"/>
+
 
                 <TextView
                     android:id="@+id/nick_profile"
@@ -75,6 +83,31 @@
                     android:layout_marginTop="6dp"
                     android:layout_marginLeft="10dp"/>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ALL"
+                    android:textSize="40sp"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="35sp"
+                    android:layout_marginEnd="2dp"/>
+
+                <ImageView
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:src="@drawable/ic_baseline_fire_24"
+                    android:layout_gravity="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="2577"
+                    android:layout_marginStart="2dp"
+                    android:textColor="@color/white"
+                    android:textSize="35sp"/>
+
 
             </LinearLayout>
 
@@ -103,19 +136,6 @@
                     android:textSize="12sp"
                     android:textColor="@color/white"
                     android:layout_marginBottom="5dp"/>
-
-                <TextView
-                    android:id="@+id/edit_account"
-                    android:layout_width="350dp"
-                    android:layout_height="40dp"
-                    android:textSize="18dp"
-                    android:text="Edit Profile"
-                    android:textColor="@color/white"
-                    android:gravity="center"
-                    android:textAllCaps="false"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="2dp"
-                    android:background="#181616"/>
 
             </LinearLayout>
 

@@ -2,6 +2,7 @@ package com.example.connect.screens
 
 import android.annotation.SuppressLint
 import android.util.Log
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.connect.R
 import com.example.connect.adapters.FindAdapter
@@ -29,8 +30,8 @@ class FindFragment: BaseFragment() {
         adapter = FindAdapter(requireContext(), findArrayList)
         recycler_view_find.adapter = adapter
 
-
         pobierzDaneZFirebase()
+        findPeople()
     }
 
     private fun pobierzDaneZFirebase(){
@@ -63,6 +64,13 @@ class FindFragment: BaseFragment() {
                 }
 
             })
+    }
+
+    fun findPeople(){
+        app_bar_find.setOnClickListener {
+            findNavController()
+                .navigate(FindFragmentDirections.actionFindFragmentToFindPeopleFragment().actionId)
+        }
     }
 
     override fun unsubscribeUi() {

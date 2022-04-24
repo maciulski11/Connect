@@ -8,7 +8,11 @@
     <fragment
         android:id="@+id/findFragment"
         android:name="com.example.connect.screens.FindFragment"
-        android:label="FindFragment" />
+        android:label="FindFragment" >
+        <action
+            android:id="@+id/action_findFragment_to_findPeopleFragment"
+            app:destination="@id/findPeopleFragment" />
+    </fragment>
     <fragment
         android:id="@+id/addPostsFragment"
         android:name="com.example.connect.screens.AddPostsFragment"
@@ -57,4 +61,12 @@
         android:id="@+id/messageFragment"
         android:name="com.example.connect.screens.MessageFragment"
         android:label="MessageFragment" />
+    <fragment
+        android:id="@+id/findPeopleFragment"
+        android:name="com.example.connect.screens.FindPeopleFragment"
+        android:label="FindPeopleFragment" >
+        <action
+            android:id="@+id/action_findPeopleFragment_to_findFragment"
+            app:destination="@id/findFragment" />
+    </fragment>
 </navigation>

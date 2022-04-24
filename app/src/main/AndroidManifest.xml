@@ -33,9 +33,14 @@
             android:name=".activity.MapsActivity"
             android:exported="true"
             android:label="@string/title_activity_maps"/>
-
         <activity
             android:name=".activity.EditPostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.EditUserProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.CommentActivity"
             android:exported="false" />
         <activity
             android:name=".activity.MessageActivity"

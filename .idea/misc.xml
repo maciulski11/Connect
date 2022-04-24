@@ -13,9 +13,13 @@
         <entry key="app/src/main/res/drawable/ic_baseline_add_241.xml" value="0.21324200913242009" />
         <entry key="app/src/main/res/drawable/ic_baseline_add_comment_24.xml" value="0.2074074074074074" />
         <entry key="app/src/main/res/drawable/ic_baseline_camera_alt_24.xml" value="0.2074074074074074" />
+        <entry key="app/src/main/res/drawable/ic_baseline_comment_24.xml" value="0.146" />
+        <entry key="app/src/main/res/drawable/ic_baseline_fire_24.xml" value="0.146" />
         <entry key="app/src/main/res/drawable/ic_baseline_grid_on_24.xml" value="0.2074074074074074" />
         <entry key="app/src/main/res/drawable/ic_baseline_image_2422.xml" value="0.138" />
+        <entry key="app/src/main/res/drawable/ic_baseline_local_fire_color_24.xml" value="0.146" />
         <entry key="app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.138" />
+        <entry key="app/src/main/res/drawable/ic_baseline_send.xml" value="0.146" />
         <entry key="app/src/main/res/drawable/ic_flag.xml" value="0.138" />
         <entry key="app/src/main/res/drawable/ic_location_24.xml" value="0.138" />
         <entry key="app/src/main/res/drawable/ic_marker.xml" value="0.138" />
@@ -32,33 +36,37 @@
         <entry key="app/src/main/res/drawable/okraglanie.xml" value="0.2074074074074074" />
         <entry key="app/src/main/res/drawable/profile21.xml" value="0.21324200913242009" />
         <entry key="app/src/main/res/layout/aaaaaa.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_comment.xml" value="0.5105386416861827" />
         <entry key="app/src/main/res/layout/activity_edit_post.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_edit_user_profile.xml" value="0.5105386416861827" />
         <entry key="app/src/main/res/layout/activity_location.xml" value="0.18640444634459172" />
         <entry key="app/src/main/res/layout/activity_log_reg.xml" value="0.2171875" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.203125" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="2.0" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25833333333333336" />
         <entry key="app/src/main/res/layout/activity_maps.xml" value="0.2006269592476489" />
         <entry key="app/src/main/res/layout/activity_message.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_share.xml" value="0.2171875" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/comment_item.xml" value="1.2717948717948717" />
         <entry key="app/src/main/res/layout/fragment_add_posts.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_create_profile.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_edit_posts.xml" value="0.19305555555555556" />
         <entry key="app/src/main/res/layout/fragment_edit_profile.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/fragment_find.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_find.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/fragment_find_people.xml" value="0.5105386416861827" />
         <entry key="app/src/main/res/layout/fragment_location.xml" value="0.18640444634459172" />
-        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.2171875" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.45" />
         <entry key="app/src/main/res/layout/fragment_message.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_message_users.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_posts.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.4723809523809524" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_share.xml" value="0.2171875" />
         <entry key="app/src/main/res/layout/fragment_share_posts.xml" value="0.335" />
         <entry key="app/src/main/res/layout/item_find_photo.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_image_profile.xml" value="0.19305555555555556" />
-        <entry key="app/src/main/res/layout/item_post.xml" value="0.45" />
+        <entry key="app/src/main/res/layout/item_post.xml" value="0.5" />
         <entry key="app/src/main/res/layout/item_receive_message.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_sent_message.xml" value="0.165" />
         <entry key="app/src/main/res/layout/item_small_image.xml" value="0.165" />

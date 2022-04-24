@@ -15,6 +15,7 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/profileUserClick"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -94,7 +95,6 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:visibility="visible"
                     android:id="@+id/imagePosts"
                     android:layout_width="match_parent"
                     android:layout_height="450dp"
@@ -102,6 +102,7 @@
                     android:layout_marginTop="2dp"
                     android:layout_marginRight="2dp"
                     android:scaleType="centerCrop"
+                    android:visibility="visible"
                     tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
                 <VideoView
@@ -122,15 +123,78 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginStart="2dp">
+
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/fireButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="2dp"
+                        android:src="@drawable/ic_baseline_fire_24"
+                        android:visibility="visible"/>
+
+                    <ImageView
+                        android:id="@+id/fireButtonCollor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="2dp"
+                        android:src="@drawable/ic_baseline_local_fire_color_24"
+                        android:visibility="invisible" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/liczbaPodpalaczy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="344"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:layout_marginStart="5dp"
+                    android:layout_gravity="center"/>
+
+                <ImageView
+                    android:id="@+id/commentIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="2dp"
+                    android:src="@drawable/ic_baseline_comment_24" />
+
+                <TextView
+                    android:id="@+id/liczbaComments"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="72"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:layout_marginStart="5dp"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/descriptionTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
-                android:layout_marginRight="7dp"
                 android:layout_marginTop="2dp"
+                android:layout_marginRight="7dp"
                 android:layout_marginBottom="12dp"
                 android:text="......"
                 android:textColor="@color/white"

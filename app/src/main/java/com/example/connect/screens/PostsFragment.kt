@@ -22,7 +22,7 @@ class PostsFragment: BaseFragment() {
 
     override val layout: Int = R.layout.fragment_posts
 
-    private lateinit var userArrayList: ArrayList<Posts>
+    private lateinit var postsArrayList: ArrayList<Posts>
     private lateinit var adapter: PostsAdapter
     private lateinit var db: FirebaseFirestore
     private val fbAuth = FirebaseAuth.getInstance()
@@ -34,9 +34,9 @@ class PostsFragment: BaseFragment() {
         recyclerViewPosts.setHasFixedSize(true)
 
         //inicjujemy nasza liste:
-        userArrayList = arrayListOf()
+        postsArrayList = arrayListOf()
 
-        adapter = PostsAdapter(requireContext(), userArrayList)
+        adapter = PostsAdapter(requireContext(), postsArrayList)
         recyclerViewPosts.adapter = adapter
 
         pobierzDaneZFirebase()
@@ -64,7 +64,7 @@ class PostsFragment: BaseFragment() {
                         //sprawdxzamy czy dokument zostal poprawnie dodany:
                         if (dc.type == DocumentChange.Type.ADDED) {
 
-                            userArrayList.add(dc.document.toObject(Posts::class.java))
+                            postsArrayList.add(dc.document.toObject(Posts::class.java))
                             val user = User()
                             Log.i("dokumanty", "Post ${user.name}")
                         }
