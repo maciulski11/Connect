@@ -20,6 +20,7 @@ import de.hdodenhof.circleimageview.CircleImageView
 class MessageUsersAdapter(private val context: Context, private val userList: ArrayList<User>):
     RecyclerView.Adapter<MessageUsersAdapter.UserViewHolder>() {
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
 
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_users_message, parent, false)

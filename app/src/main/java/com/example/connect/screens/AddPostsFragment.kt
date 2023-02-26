@@ -63,7 +63,6 @@ class AddPostsFragment() : BaseFragment() {
         nextButton.setOnClickListener {
             findNavController()
                 .navigate(AddPostsFragmentDirections.actionAddPostsFragmentToSharePosts().actionId)
-            next()
         }
 
     }

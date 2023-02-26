@@ -54,7 +54,8 @@
         <activity
             android:name=".activity.MainActivity"
             android:exported="true"
-            android:screenOrientation="fullUser" />
+            android:screenOrientation="fullUser"
+            tools:ignore="Instantiatable" />
     </application>
 
 </manifest>

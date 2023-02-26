@@ -28,7 +28,7 @@ class EditPostActivity: AppCompatActivity() {
             onBackPressed()
         }
 
-        val intent = getIntent()
+        val intent = intent
         val postUid = intent.getStringExtra("uid")
         val postName = intent.getStringExtra("name")
         val postImage = intent.getStringExtra("image_photo")
