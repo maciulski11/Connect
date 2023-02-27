@@ -12,7 +12,6 @@ import com.example.connect.data.Chat
 import com.example.connect.data.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import de.hdodenhof.circleimageview.CircleImageView
 
 class MessageAdapter(private val context: Context, private val chatList: ArrayList<Chat>) :
     RecyclerView.Adapter<MessageAdapter.ViewHolder>() {
