@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -13,9 +14,7 @@ import com.bumptech.glide.Glide
 import com.example.connect.R
 import com.example.connect.activity.MessageActivity
 import com.example.connect.data.LastMessage
-import com.example.connect.data.NotificationData
 import com.example.connect.data.User
-import de.hdodenhof.circleimageview.CircleImageView
 
 class MessageUsersAdapter(private val context: Context, private val userList: ArrayList<User>):
     RecyclerView.Adapter<MessageUsersAdapter.UserViewHolder>() {
@@ -52,7 +51,7 @@ class MessageUsersAdapter(private val context: Context, private val userList: Ar
     inner class UserViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         val name = view.findViewById<TextView>(R.id.nameUsers)
-        val image = view.findViewById<CircleImageView>(R.id.userImage)
+        val image = view.findViewById<ImageView>(R.id.userImage)
         val layoutUser = view.findViewById<LinearLayout>(R.id.layoutUser)
         val lastMessage = view.findViewById<TextView>(R.id.lastMessage)
 

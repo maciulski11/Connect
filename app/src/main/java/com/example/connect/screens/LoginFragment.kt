@@ -100,12 +100,12 @@ class LoginFragment : BaseFragment() {
         sign_in_button_google.setOnClickListener {
 
             // Configure Google Sign In
-            val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build()
+//            val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+//                .requestIdToken(getString(R.string.default_web_client_id))
+//                .requestEmail()
+//                .build()
 
-            googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)
+//            googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)
 
             signIn()
         }
