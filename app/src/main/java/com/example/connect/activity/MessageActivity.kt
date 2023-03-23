@@ -40,7 +40,7 @@ class MessageActivity: AppCompatActivity() {
         messageRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
 
-        val intent = getIntent()
+        val intent = intent
         val userUid = intent.getStringExtra("uid")
 
         imgBack.setOnClickListener {
@@ -123,7 +123,7 @@ class MessageActivity: AppCompatActivity() {
 
     }
 
-    fun readMessage(senderId: String, receiverId: String) {
+    private fun readMessage(senderId: String, receiverId: String) {
         val databaseReference: DatabaseReference =
             FirebaseDatabase.getInstance("https://instugram-4e633-default-rtdb.europe-west1.firebasedatabase.app/")
                 .getReference("Chat")
