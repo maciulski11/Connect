@@ -15,7 +15,6 @@ class MainActivity : AppCompatActivity() {
 
         //FirebaseServices.sharedPref = getSharedPreferences("sharedPref", Context.MODE_PRIVATE)
 
-
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottonNavView)
         //bottomNavigationView.setBackgroundColor(Color.BLACK)
         val navController = findNavController(R.id.fragment)
